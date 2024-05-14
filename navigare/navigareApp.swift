@@ -1,5 +1,5 @@
 //
-//  navigareApp.swift
+//  NavigareApp.swift
 //  navigare
 //
 //  Created by Kresimir Levarda on 14.05.2024..
@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct navigareApp: App {
+struct NavigareApp: App {
+    @StateObject var appRouter = Router()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
+                .environmentObject(appRouter)
         }
     }
 }

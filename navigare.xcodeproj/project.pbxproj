@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C85099342BF3AA1D0069C64B /* navigareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099332BF3AA1D0069C64B /* navigareApp.swift */; };
+		C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099332BF3AA1D0069C64B /* NavigareApp.swift */; };
 		C85099362BF3AA1D0069C64B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099352BF3AA1D0069C64B /* ContentView.swift */; };
 		C85099382BF3AA1E0069C64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85099372BF3AA1E0069C64B /* Assets.xcassets */; };
 		C850993C2BF3AA1E0069C64B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */; };
+		C85099432BF3AC730069C64B /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099422BF3AC730069C64B /* AppView.swift */; };
+		C85099452BF3ACEB0069C64B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099442BF3ACEB0069C64B /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C85099302BF3AA1D0069C64B /* navigare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C85099332BF3AA1D0069C64B /* navigareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigareApp.swift; sourceTree = "<group>"; };
+		C85099332BF3AA1D0069C64B /* NavigareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigareApp.swift; sourceTree = "<group>"; };
 		C85099352BF3AA1D0069C64B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C85099372BF3AA1E0069C64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C85099392BF3AA1E0069C64B /* navigare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = navigare.entitlements; sourceTree = "<group>"; };
 		C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C85099422BF3AC730069C64B /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		C85099442BF3ACEB0069C64B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 		C85099322BF3AA1D0069C64B /* navigare */ = {
 			isa = PBXGroup;
 			children = (
-				C85099332BF3AA1D0069C64B /* navigareApp.swift */,
+				C85099332BF3AA1D0069C64B /* NavigareApp.swift */,
+				C85099422BF3AC730069C64B /* AppView.swift */,
+				C85099442BF3ACEB0069C64B /* Router.swift */,
 				C85099352BF3AA1D0069C64B /* ContentView.swift */,
 				C85099372BF3AA1E0069C64B /* Assets.xcassets */,
 				C85099392BF3AA1E0069C64B /* navigare.entitlements */,
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85099452BF3ACEB0069C64B /* Router.swift in Sources */,
 				C85099362BF3AA1D0069C64B /* ContentView.swift in Sources */,
-				C85099342BF3AA1D0069C64B /* navigareApp.swift in Sources */,
+				C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */,
+				C85099432BF3AC730069C64B /* AppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +292,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -322,7 +330,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
