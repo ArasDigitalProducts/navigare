@@ -22,7 +22,9 @@ struct SettingsView: View {
                 }
             }
             .withSettingsRoutes()
+            .withSettingsSheets()
         }
+        .environmentObject(settingsRouter)
     }
 }
 

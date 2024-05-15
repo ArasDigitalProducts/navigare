@@ -16,8 +16,14 @@ enum SettingsPath: Hashable {
     case notifications
 }
 
+enum SheetDestination: Hashable {
+    case test
+}
+
 class Router: ObservableObject {
     @Published var path: NavigationPath
+
+    private var sheet: SheetDestination?
 
     init() {
         self.path = NavigationPath()
@@ -42,6 +48,15 @@ extension View {
                 ProfileView()
             case .notifications:
                 NotificationsView()
+            }
+        }
+    }
+
+    func withSettingSheets() -> some View {
+        sheet(item: $sheet) { destination in
+            switch destination {
+            case .test:
+                
             }
         }
     }
