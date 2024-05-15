@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct NavigareApp: App {
-    @StateObject var appRouter = Router()
+    @StateObject var stateManager = StateManager()
+    @StateObject var sessionManager = SessionManager()
 
     var body: some Scene {
         WindowGroup {
             AppView()
-                .environmentObject(appRouter)
+                .environmentObject(stateManager)
+                .environmentObject(sessionManager)
         }
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
     @StateObject var homeRouter = Router()
     @StateObject var settingsRouter = Router()
 
@@ -17,7 +19,10 @@ struct TabBarView: View {
         TabView(selection: $selection) {
             NavigationStack(path: $homeRouter.path) {
                 VStack {
-                    Text("Home")
+                    Text("Logged in as \(sessionManager.username ?? "nil")")
+                    Button("Logout") {
+                        sessionManager.logout()
+                    }
                 }
                 .withHomeRoutes()
             }
@@ -51,4 +56,5 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
+        .environmentObject(SessionManager())
 }

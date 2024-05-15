@@ -10,6 +10,8 @@
 		65F211712BF4B87B009D64D0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211702BF4B87B009D64D0 /* OnboardingView.swift */; };
 		65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211722BF4B87F009D64D0 /* AuthView.swift */; };
 		65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211742BF4B884009D64D0 /* TabBarView.swift */; };
+		65F211782BF4D3DB009D64D0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211772BF4D3DB009D64D0 /* SessionManager.swift */; };
+		65F2117A2BF4E5A1009D64D0 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211792BF4E5A1009D64D0 /* StateManager.swift */; };
 		C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099332BF3AA1D0069C64B /* NavigareApp.swift */; };
 		C85099382BF3AA1E0069C64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85099372BF3AA1E0069C64B /* Assets.xcassets */; };
 		C850993C2BF3AA1E0069C64B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */; };
@@ -21,6 +23,8 @@
 		65F211702BF4B87B009D64D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		65F211722BF4B87F009D64D0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		65F211742BF4B884009D64D0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		65F211772BF4D3DB009D64D0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		65F211792BF4E5A1009D64D0 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		C85099302BF3AA1D0069C64B /* navigare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85099332BF3AA1D0069C64B /* NavigareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigareApp.swift; sourceTree = "<group>"; };
 		C85099372BF3AA1E0069C64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				C85099332BF3AA1D0069C64B /* NavigareApp.swift */,
 				C85099442BF3ACEB0069C64B /* Router.swift */,
+				65F211772BF4D3DB009D64D0 /* SessionManager.swift */,
+				65F211792BF4E5A1009D64D0 /* StateManager.swift */,
 				65F211762BF4D25C009D64D0 /* AppView */,
 				C85099372BF3AA1E0069C64B /* Assets.xcassets */,
 				C85099392BF3AA1E0069C64B /* navigare.entitlements */,
@@ -160,11 +166,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C85099452BF3ACEB0069C64B /* Router.swift in Sources */,
+				65F2117A2BF4E5A1009D64D0 /* StateManager.swift in Sources */,
 				65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */,
 				65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */,
 				C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */,
 				65F211712BF4B87B009D64D0 /* OnboardingView.swift in Sources */,
 				C85099432BF3AC730069C64B /* AppView.swift in Sources */,
+				65F211782BF4D3DB009D64D0 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

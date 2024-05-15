@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct AuthView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
+    @State var username = ""
+
     var body: some View {
         VStack {
-            Text("Auth view!")
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .background(Color.green)
-                .ignoresSafeArea()
+            TextField("username", text: $username)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+
+            Button("Login") {
+                sessionManager.login(username: username)
+            }
+            .disabled(username.isEmpty)
+            .buttonStyle(.borderedProminent)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .background(Color.green)
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
     AuthView()
+        .environmentObject(SessionManager())
 }
