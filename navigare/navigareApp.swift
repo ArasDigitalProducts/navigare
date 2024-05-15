@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct NavigareApp: App {
-    @StateObject var stateManager = StateManager()
-    @StateObject var sessionManager = SessionManager()
+    @StateObject private var stateManager = StateManager()
+    @StateObject private var sessionManager = SessionManager()
 
     var body: some Scene {
         WindowGroup {

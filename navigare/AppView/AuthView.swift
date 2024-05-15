@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AuthView: View {
-    @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject private var sessionManager: SessionManager
 
-    @State var username = ""
+    @State private var username = ""
 
     var body: some View {
         VStack {

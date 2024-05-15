@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @EnvironmentObject var stateManager: StateManager
+    @EnvironmentObject private var stateManager: StateManager
+
+    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted = false
 
     var body: some View {
         VStack {
             Text("Onboarding")
 
             Button("Next") {
+                isOnboardingCompleted = true
                 withAnimation {
                     stateManager.setState(to: .home)
                 }
-                UserDefaults.standard.setValue(true, forKey: "isOnboardingCompleted")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)

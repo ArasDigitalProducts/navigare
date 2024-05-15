@@ -14,8 +14,10 @@ enum AppState {
 }
 
 struct AppView: View {
-    @EnvironmentObject var stateManager: StateManager
-    @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject private var stateManager: StateManager
+    @EnvironmentObject private var sessionManager: SessionManager
+
+    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted = false
 
     var body: some View {
         Group {
@@ -37,17 +39,13 @@ struct AppView: View {
             withAnimation {
                 if sessionManager.username == nil {
                     stateManager.setState(to: .auth)
-                } else if isOnboardingCompleted() {
+                } else if isOnboardingCompleted {
                     stateManager.setState(to: .home)
                 } else {
                     stateManager.setState(to: .onboarding)
                 }
             }
         }
-    }
-
-    func isOnboardingCompleted() -> Bool {
-        UserDefaults.standard.bool(forKey: "isOnboardingCompleted")
     }
 }
 
