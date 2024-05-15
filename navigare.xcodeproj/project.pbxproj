@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65F211712BF4B87B009D64D0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211702BF4B87B009D64D0 /* OnboardingView.swift */; };
+		65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211722BF4B87F009D64D0 /* AuthView.swift */; };
+		65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211742BF4B884009D64D0 /* TabBarView.swift */; };
 		C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099332BF3AA1D0069C64B /* NavigareApp.swift */; };
-		C85099362BF3AA1D0069C64B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099352BF3AA1D0069C64B /* ContentView.swift */; };
 		C85099382BF3AA1E0069C64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85099372BF3AA1E0069C64B /* Assets.xcassets */; };
 		C850993C2BF3AA1E0069C64B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */; };
 		C85099432BF3AC730069C64B /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099422BF3AC730069C64B /* AppView.swift */; };
@@ -16,9 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65F211702BF4B87B009D64D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		65F211722BF4B87F009D64D0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		65F211742BF4B884009D64D0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		C85099302BF3AA1D0069C64B /* navigare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85099332BF3AA1D0069C64B /* NavigareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigareApp.swift; sourceTree = "<group>"; };
-		C85099352BF3AA1D0069C64B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C85099372BF3AA1E0069C64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C85099392BF3AA1E0069C64B /* navigare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = navigare.entitlements; sourceTree = "<group>"; };
 		C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -37,6 +41,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65F211762BF4D25C009D64D0 /* AppView */ = {
+			isa = PBXGroup;
+			children = (
+				C85099422BF3AC730069C64B /* AppView.swift */,
+				65F211702BF4B87B009D64D0 /* OnboardingView.swift */,
+				65F211722BF4B87F009D64D0 /* AuthView.swift */,
+				65F211742BF4B884009D64D0 /* TabBarView.swift */,
+			);
+			path = AppView;
+			sourceTree = "<group>";
+		};
 		C85099272BF3AA1C0069C64B = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				C85099332BF3AA1D0069C64B /* NavigareApp.swift */,
-				C85099422BF3AC730069C64B /* AppView.swift */,
 				C85099442BF3ACEB0069C64B /* Router.swift */,
-				C85099352BF3AA1D0069C64B /* ContentView.swift */,
+				65F211762BF4D25C009D64D0 /* AppView */,
 				C85099372BF3AA1E0069C64B /* Assets.xcassets */,
 				C85099392BF3AA1E0069C64B /* navigare.entitlements */,
 				C850993A2BF3AA1E0069C64B /* Preview Content */,
@@ -103,7 +117,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					C850992F2BF3AA1D0069C64B = {
 						CreatedOnToolsVersion = 15.0;
@@ -146,8 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C85099452BF3ACEB0069C64B /* Router.swift in Sources */,
-				C85099362BF3AA1D0069C64B /* ContentView.swift in Sources */,
+				65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */,
+				65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */,
 				C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */,
+				65F211712BF4B87B009D64D0 /* OnboardingView.swift in Sources */,
 				C85099432BF3AC730069C64B /* AppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +205,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -250,6 +267,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -277,6 +295,7 @@
 				CODE_SIGN_ENTITLEMENTS = navigare/navigare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"navigare/Preview Content\"";
 				DEVELOPMENT_TEAM = Q2P9VVU3YH;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -315,6 +334,7 @@
 				CODE_SIGN_ENTITLEMENTS = navigare/navigare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"navigare/Preview Content\"";
 				DEVELOPMENT_TEAM = Q2P9VVU3YH;
 				ENABLE_HARDENED_RUNTIME = YES;

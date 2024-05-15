@@ -7,15 +7,13 @@
 
 import SwiftUI
 
-enum RouterPath: Hashable {
-    case home
-    case auth
-    case onboarding
+enum HomePath: Hashable {
+    case details
 }
 
-enum ExplorePath: Hashable {
-    case tutorial
-    case explore
+enum SettingsPath: Hashable {
+    case profile
+    case notifications
 }
 
 class Router: ObservableObject {
@@ -31,14 +29,14 @@ class Router: ObservableObject {
 }
 
 extension View {
-    func withAppRoutes() -> some View {
-        navigationDestination(for: RouterPath.self) { path in
+    func withHomeRoutes() -> some View {
+        navigationDestination(for: HomePath.self) { path in
             Text("\(path.hashValue)")
         }
     }
 
-    func withExploreRoutes() -> some View {
-        navigationDestination(for: ExplorePath.self) { path in
+    func withSettingsRoutes() -> some View {
+        navigationDestination(for: SettingsPath.self) { path in
             Text("\(path.hashValue)")
         }
     }
