@@ -13,7 +13,7 @@ class SessionManager: ObservableObject {
     private let usernameKey = "username"
 
     init() {
-        username = UserDefaults.standard.string(forKey: usernameKey)
+//        username = UserDefaults.standard.string(forKey: usernameKey)
     }
 
     func login(username: String) {

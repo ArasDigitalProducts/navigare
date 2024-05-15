@@ -37,7 +37,12 @@ extension View {
 
     func withSettingsRoutes() -> some View {
         navigationDestination(for: SettingsPath.self) { path in
-            Text("\(path.hashValue)")
+            switch path {
+            case .profile:
+                ProfileView()
+            case .notifications:
+                NotificationsView()
+            }
         }
     }
 }

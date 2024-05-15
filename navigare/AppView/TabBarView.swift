@@ -14,6 +14,7 @@ struct TabBarView: View {
         TabView(selection: $selection) {
             ForEach(Tab.allCases) { tab in
                 tab.contentView()
+                    .tag(tab)
                     .tabItem {
                         Label(
                             title: { Text(tab.title) },

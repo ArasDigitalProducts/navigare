@@ -12,11 +12,14 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationStack(path: $settingsRouter.path) {
-            VStack {
-                Text("Settings")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    .background(Color.yellow)
-                    .ignoresSafeArea()
+            List {
+                Button("Profile") {
+                    settingsRouter.push(to: SettingsPath.profile)
+                }
+
+                Button("Notifications") {
+                    settingsRouter.push(to: SettingsPath.notifications)
+                }
             }
             .withSettingsRoutes()
         }
@@ -25,4 +28,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(SessionManager())
 }

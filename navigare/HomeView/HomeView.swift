@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var sessionManager: SessionManager
     @StateObject private var homeRouter = Router()
 
     var body: some View {
         NavigationStack(path: $homeRouter.path) {
             VStack {
-                Text("Logged in as \(sessionManager.username ?? "nil")")
-                Button("Logout") {
-                    sessionManager.logout()
-                }
+                Text("Hello world!")
             }
             .withHomeRoutes()
         }
     }
+}
+
+#Preview {
+    HomeView()
 }
