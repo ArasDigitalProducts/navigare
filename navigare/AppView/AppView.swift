@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-enum AppState {
-    case auth
-    case onboarding
-    case home
-}
-
 struct AppView: View {
     @EnvironmentObject private var stateManager: StateManager
     @EnvironmentObject private var sessionManager: SessionManager

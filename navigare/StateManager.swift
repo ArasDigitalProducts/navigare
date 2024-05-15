@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum AppState {
+    case auth
+    case onboarding
+    case home
+}
+
 class StateManager: ObservableObject {
     @Published var state: AppState
 
