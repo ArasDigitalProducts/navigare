@@ -8,27 +8,19 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var selection = 0
+    @State private var selection = Tab.home
 
     var body: some View {
         TabView(selection: $selection) {
-            HomeView()
-                .tag(0)
-                .tabItem {
-                    Label(
-                        title: { Text("Home") },
-                        icon: { Image(systemName: "house") }
-                    )
-                }
-
-            SettingsView()
-                .tag(1)
-                .tabItem {
-                    Label(
-                        title: { Text("Settings") },
-                        icon: { Image(systemName: "gear") }
-                    )
-                }
+            ForEach(Tab.allCases) { tab in
+                tab.contentView()
+                    .tabItem {
+                        Label(
+                            title: { Text(tab.title) },
+                            icon: { Image(systemName: tab.icon) }
+                        )
+                    }
+            }
         }
     }
 }
@@ -36,4 +28,41 @@ struct TabBarView: View {
 #Preview {
     TabBarView()
         .environmentObject(SessionManager())
+}
+
+enum Tab: Int, Identifiable, CaseIterable {
+    case home
+    case settings
+
+    nonisolated var id: Int {
+      rawValue
+    }
+
+    @ViewBuilder
+    func contentView() -> some View {
+        switch self {
+        case .home:
+            HomeView()
+        case .settings:
+            SettingsView()
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .home:
+            "Home"
+        case .settings:
+            "Settings"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .home:
+            "house"
+        case .settings:
+            "gear"
+        }
+    }
 }
