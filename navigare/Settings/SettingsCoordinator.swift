@@ -41,4 +41,5 @@ extension View {
 
 #Preview {
     SettingsCoordinator()
+        .environmentObject(Coordinator())
 }
