@@ -9,18 +9,33 @@ import SwiftUI
 
 struct TabBarView: View {
     @State private var selection = Tab.home
+    @StateObject private var homeCoordinator = Coordinator()
+    @StateObject private var settingsCoordinator = Coordinator()
 
     var body: some View {
         TabView(selection: $selection) {
-            ForEach(Tab.allCases) { tab in
-                tab.contentView()
-                    .tag(tab)
-                    .tabItem {
-                        Label(
-                            title: { Text(tab.title) },
-                            icon: { Image(systemName: tab.icon) }
-                        )
-                    }
+            NavigationStack(path: $homeCoordinator.path) {
+                HomeCoordinator()
+            }
+            .environmentObject(homeCoordinator)
+            .tag(Tab.home)
+            .tabItem {
+                Label(
+                    title: { Text(Tab.home.title) },
+                    icon: { Image(systemName: Tab.home.icon) }
+                )
+            }
+
+            NavigationStack(path: $settingsCoordinator.path) {
+                SettingsCoordinator()
+            }
+            .environmentObject(settingsCoordinator)
+            .tag(Tab.settings)
+            .tabItem {
+                Label(
+                    title: { Text(Tab.settings.title) },
+                    icon: { Image(systemName: Tab.settings.icon) }
+                )
             }
         }
     }
@@ -37,16 +52,6 @@ enum Tab: Int, Identifiable, CaseIterable {
 
     nonisolated var id: Int {
       rawValue
-    }
-
-    @ViewBuilder
-    func contentView() -> some View {
-        switch self {
-        case .home:
-            HomeCoordinator()
-        case .settings:
-            SettingsCoordinator()
-        }
     }
 
     var title: String {

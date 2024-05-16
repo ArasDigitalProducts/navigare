@@ -62,7 +62,6 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
-        .withHomeRoutes()
     }
 }
 

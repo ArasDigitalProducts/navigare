@@ -20,15 +20,6 @@ struct SettingsView: View {
                 coordinator.present(.notifications, isFullscreen: true)
             }
         }
-        .withSettingsRoutes()
-        .fullScreenCover(item: $coordinator.fullscreenSheet) { destination in
-            switch destination {
-            case .notifications:
-                NotificationsView()
-            default:
-                EmptyView()
-            }
-        }
     }
 }
 

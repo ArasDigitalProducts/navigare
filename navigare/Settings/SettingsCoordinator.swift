@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct SettingsCoordinator: View {
-    @StateObject private var coordinator = Coordinator()
+    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
-        NavigationStack(path: $coordinator.path) {
-            SettingsView()
-        }
-        .environmentObject(coordinator)
+        SettingsView()
+            .withSettingsRoutes()
+            .fullScreenCover(item: $coordinator.fullscreenSheet) { destination in
+                switch destination {
+                case .notifications:
+                    NotificationsView()
+                default:
+                    EmptyView()
+                }
+            }
     }
 }
 
@@ -23,7 +29,6 @@ enum SettingsPath: Hashable {
 }
 
 extension View {
-
     func withSettingsRoutes() -> some View {
         navigationDestination(for: SettingsPath.self) { path in
             switch path {

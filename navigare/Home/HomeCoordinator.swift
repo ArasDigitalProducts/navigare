@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct HomeCoordinator: View {
-    @StateObject private var coordinator = Coordinator()
+    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
-        NavigationStack(path: $coordinator.path) {
-            HomeView()
-        }
-        .environmentObject(coordinator)
+        HomeView()
+            .withHomeRoutes()
+//            .withSettingsRoutes()
     }
 }
 
