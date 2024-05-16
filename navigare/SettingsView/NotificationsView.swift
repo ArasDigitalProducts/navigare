@@ -11,14 +11,16 @@ struct NotificationsView: View {
     @EnvironmentObject private var settingsRouter: Router
 
     @AppStorage("notificationsEnabled") private var notificationsEnabled = false
-    @State private var isSheetVisible = false
 
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Toggle("Notifications", isOn: $notificationsEnabled)
-            Button("Sheet") {
-                isSheetVisible = true
+
+            Button("Dismiss") {
+                settingsRouter.dismiss()
             }
+            .buttonStyle(.borderedProminent)
+
             Spacer()
         }
         .padding()

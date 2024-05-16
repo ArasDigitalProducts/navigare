@@ -16,6 +16,9 @@
 		65F2117F2BF4ED19009D64D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2117E2BF4ED19009D64D0 /* SettingsView.swift */; };
 		65F211822BF4F218009D64D0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211812BF4F218009D64D0 /* ProfileView.swift */; };
 		65F211842BF4F22A009D64D0 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211832BF4F22A009D64D0 /* NotificationsView.swift */; };
+		65F211872BF5F4E4009D64D0 /* ArticleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211862BF5F4E4009D64D0 /* ArticleListItemView.swift */; };
+		65F211892BF5F512009D64D0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211882BF5F512009D64D0 /* Article.swift */; };
+		65F2118B2BF5F64E009D64D0 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2118A2BF5F64E009D64D0 /* ArticleView.swift */; };
 		C85099342BF3AA1D0069C64B /* NavigareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099332BF3AA1D0069C64B /* NavigareApp.swift */; };
 		C85099382BF3AA1E0069C64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85099372BF3AA1E0069C64B /* Assets.xcassets */; };
 		C850993C2BF3AA1E0069C64B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		65F2117E2BF4ED19009D64D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		65F211812BF4F218009D64D0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		65F211832BF4F22A009D64D0 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		65F211862BF5F4E4009D64D0 /* ArticleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListItemView.swift; sourceTree = "<group>"; };
+		65F211882BF5F512009D64D0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		65F2118A2BF5F64E009D64D0 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		C85099302BF3AA1D0069C64B /* navigare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85099332BF3AA1D0069C64B /* NavigareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigareApp.swift; sourceTree = "<group>"; };
 		C85099372BF3AA1E0069C64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				65F2117C2BF4ECE3009D64D0 /* HomeView.swift */,
+				65F211882BF5F512009D64D0 /* Article.swift */,
+				65F211862BF5F4E4009D64D0 /* ArticleListItemView.swift */,
+				65F2118A2BF5F64E009D64D0 /* ArticleView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -193,7 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F211892BF5F512009D64D0 /* Article.swift in Sources */,
 				65F2117D2BF4ECE3009D64D0 /* HomeView.swift in Sources */,
+				65F2118B2BF5F64E009D64D0 /* ArticleView.swift in Sources */,
 				C85099452BF3ACEB0069C64B /* Router.swift in Sources */,
 				65F2117A2BF4E5A1009D64D0 /* StateManager.swift in Sources */,
 				65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */,
@@ -204,6 +215,7 @@
 				C85099432BF3AC730069C64B /* AppView.swift in Sources */,
 				65F211822BF4F218009D64D0 /* ProfileView.swift in Sources */,
 				65F211782BF4D3DB009D64D0 /* SessionManager.swift in Sources */,
+				65F211872BF5F4E4009D64D0 /* ArticleListItemView.swift in Sources */,
 				65F211842BF4F22A009D64D0 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,7 +25,7 @@ struct AuthView: View {
             .buttonStyle(.borderedProminent)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .background(Color.green)
+        .background(.mint.gradient)
         .ignoresSafeArea()
     }
 }

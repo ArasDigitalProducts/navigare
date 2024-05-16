@@ -24,7 +24,7 @@ struct OnboardingView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .background(Color.red)
+        .background(.red.gradient)
         .ignoresSafeArea()
     }
 }

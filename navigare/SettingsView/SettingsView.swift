@@ -18,11 +18,17 @@ struct SettingsView: View {
                 }
 
                 Button("Notifications") {
-                    settingsRouter.push(to: SettingsPath.notifications)
+                    settingsRouter.present(.notifications, isFullscreen: true)
                 }
             }
             .withSettingsRoutes()
-            .withSettingsSheets()
+            .fullScreenCover(item: $settingsRouter.fullscreenSheet) { destination in
+                switch destination {
+                case .notifications:
+                    NotificationsView()
+
+                }
+            }
         }
         .environmentObject(settingsRouter)
     }

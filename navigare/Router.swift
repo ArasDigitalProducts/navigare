@@ -8,22 +8,41 @@
 import SwiftUI
 
 enum HomePath: Hashable {
-    case details
+    case details(Article)
+
+    static func == (lhs: HomePath, rhs: HomePath) -> Bool {
+        switch (lhs, rhs) {
+        case (.details(let lhsArticle), .details(let rhsArticle)):
+            return lhsArticle == rhsArticle
+        default:
+            return false
+        }
+    }
+
+    func hash(into hasher: inout Hasher) {
+        switch self {
+        case .details(let article):
+            hasher.combine(article)
+        }
+    }
 }
 
 enum SettingsPath: Hashable {
     case profile
-    case notifications
 }
 
-enum SheetDestination: Hashable {
-    case test
+enum SheetDestination: Identifiable {
+    case notifications
+
+    var id: Self {
+        self
+    }
 }
 
 class Router: ObservableObject {
     @Published var path: NavigationPath
-
-    private var sheet: SheetDestination?
+    @Published var sheet: SheetDestination?
+    @Published var fullscreenSheet: SheetDestination?
 
     init() {
         self.path = NavigationPath()
@@ -32,12 +51,33 @@ class Router: ObservableObject {
     func push(to destination: any Hashable) {
         path.append(destination)
     }
+
+    func pop() {
+        guard !path.isEmpty else { return }
+        path.removeLast()
+    }
+
+    func present(_ sheet: SheetDestination, isFullscreen: Bool = false) {
+        if isFullscreen {
+            self.fullscreenSheet = sheet
+        } else {
+            self.sheet = sheet
+        }
+    }
+
+    func dismiss() {
+        sheet = nil
+        fullscreenSheet = nil
+    }
 }
 
 extension View {
     func withHomeRoutes() -> some View {
         navigationDestination(for: HomePath.self) { path in
-            Text("\(path.hashValue)")
+            switch path {
+            case .details(let article):
+                ArticleView(article: article)
+            }
         }
     }
 
@@ -46,17 +86,6 @@ extension View {
             switch path {
             case .profile:
                 ProfileView()
-            case .notifications:
-                NotificationsView()
-            }
-        }
-    }
-
-    func withSettingSheets() -> some View {
-        sheet(item: $sheet) { destination in
-            switch destination {
-            case .test:
-                
             }
         }
     }
