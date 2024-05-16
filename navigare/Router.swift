@@ -14,7 +14,7 @@ enum HomePath: Hashable {
         switch (lhs, rhs) {
         case (.details(let lhsArticle), .details(let rhsArticle)):
             return lhsArticle == rhsArticle
-        default:
+        @unknown default:
             return false
         }
     }
