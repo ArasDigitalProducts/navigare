@@ -51,12 +51,12 @@ let articles: [Article] = [
 ]
 
 struct HomeView: View {
-    @EnvironmentObject private var router: Router
+    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
         List(articles) { article in
             Button {
-                router.push(to: HomePath.details(article))
+                coordinator.push(to: HomePath.details(article))
             } label: {
                 ArticleListItemView(article: article)
             }

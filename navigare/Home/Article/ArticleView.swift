@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArticleView: View {
-    @EnvironmentObject private var homeRouter: Router
+    @EnvironmentObject private var coordinator: Coordinator
 
     let article: Article
 
@@ -32,7 +32,7 @@ struct ArticleView: View {
             Spacer()
 
             Button("Web article") {
-                homeRouter.present(.webArticle)
+                coordinator.present(.webArticle)
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity, alignment: .center)
@@ -41,7 +41,7 @@ struct ArticleView: View {
         }
         .padding()
         .background(.mint.gradient)
-        .sheet(item: $homeRouter.sheet) { destination in
+        .sheet(item: $coordinator.sheet) { destination in
             switch destination {
             case .webArticle:
                 Text("Web view")
@@ -59,5 +59,5 @@ struct ArticleView: View {
             description: "Discover how incorporating mindfulness meditation into your daily routine can lead to reduced stress, improved focus, and enhanced overall well-being."
         )
     )
-    .environmentObject(Router())
+    .environmentObject(Coordinator())
 }

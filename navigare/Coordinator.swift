@@ -40,7 +40,7 @@ enum SheetDestination: Identifiable {
     }
 }
 
-class Router: ObservableObject {
+class Coordinator: ObservableObject {
     @Published var path: NavigationPath
     @Published var sheet: SheetDestination?
     @Published var fullscreenSheet: SheetDestination?
@@ -69,6 +69,11 @@ class Router: ObservableObject {
     func dismiss() {
         sheet = nil
         fullscreenSheet = nil
+    }
+
+    func handle(url: URL) {
+        // handle url and setup stack or
+        UIApplication.shared.open(url)
     }
 }
 

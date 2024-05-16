@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationsView: View {
-    @EnvironmentObject private var settingsRouter: Router
+    @EnvironmentObject private var coordinator: Coordinator
 
     @AppStorage("notificationsEnabled") private var notificationsEnabled = false
 
@@ -17,7 +17,7 @@ struct NotificationsView: View {
             Toggle("Notifications", isOn: $notificationsEnabled)
 
             Button("Dismiss") {
-                settingsRouter.dismiss()
+                coordinator.dismiss()
             }
             .buttonStyle(.borderedProminent)
 
@@ -29,5 +29,5 @@ struct NotificationsView: View {
 
 #Preview {
     NotificationsView()
-        .environmentObject(Router())
+        .environmentObject(Coordinator())
 }

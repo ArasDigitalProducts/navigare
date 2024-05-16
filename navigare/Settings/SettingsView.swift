@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var router: Router
+    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
         List {
             Button("Profile") {
-                router.push(to: SettingsPath.profile)
+                coordinator.push(to: SettingsPath.profile)
             }
 
             Button("Notifications") {
-                router.present(.notifications, isFullscreen: true)
+                coordinator.present(.notifications, isFullscreen: true)
             }
         }
         .withSettingsRoutes()
-        .fullScreenCover(item: $router.fullscreenSheet) { destination in
+        .fullScreenCover(item: $coordinator.fullscreenSheet) { destination in
             switch destination {
             case .notifications:
                 NotificationsView()
