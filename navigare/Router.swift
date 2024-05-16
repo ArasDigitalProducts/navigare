@@ -33,6 +33,7 @@ enum SettingsPath: Hashable {
 
 enum SheetDestination: Identifiable {
     case notifications
+    case webArticle
 
     var id: Self {
         self

@@ -26,7 +26,8 @@ struct SettingsView: View {
                 switch destination {
                 case .notifications:
                     NotificationsView()
-
+                default:
+                    EmptyView()
                 }
             }
         }

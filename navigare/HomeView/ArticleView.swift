@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ArticleView: View {
+    @EnvironmentObject private var homeRouter: Router
+
     let article: Article
 
     var body: some View {
@@ -28,9 +30,25 @@ struct ArticleView: View {
                 .font(.system(size: 16))
 
             Spacer()
+
+            Button("Web article") {
+                homeRouter.present(.webArticle)
+            }
+            .buttonStyle(.borderedProminent)
+            .frame(maxWidth: .infinity, alignment: .center)
+
+            Spacer()
         }
         .padding()
         .background(.mint.gradient)
+        .sheet(item: $homeRouter.sheet) { destination in
+            switch destination {
+            case .webArticle:
+                Text("Web view")
+            default:
+                EmptyView()
+            }
+        }
     }
 }
 
@@ -41,4 +59,5 @@ struct ArticleView: View {
             description: "Discover how incorporating mindfulness meditation into your daily routine can lead to reduced stress, improved focus, and enhanced overall well-being."
         )
     )
+    .environmentObject(Router())
 }
