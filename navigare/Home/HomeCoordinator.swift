@@ -18,6 +18,37 @@ struct HomeCoordinator: View {
     }
 }
 
+enum HomePath: Hashable {
+    case details(Article)
+
+    static func == (lhs: HomePath, rhs: HomePath) -> Bool {
+        switch (lhs, rhs) {
+        case (.details(let lhsArticle), .details(let rhsArticle)):
+            return lhsArticle == rhsArticle
+        @unknown default:
+            return false
+        }
+    }
+
+    func hash(into hasher: inout Hasher) {
+        switch self {
+        case .details(let article):
+            hasher.combine(article)
+        }
+    }
+}
+
+extension View {
+    func withHomeRoutes() -> some View {
+        navigationDestination(for: HomePath.self) { path in
+            switch path {
+            case .details(let article):
+                ArticleView(article: article)
+            }
+        }
+    }
+}
+
 #Preview {
     HomeCoordinator()
 }

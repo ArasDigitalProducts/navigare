@@ -18,6 +18,22 @@ struct SettingsCoordinator: View {
     }
 }
 
+enum SettingsPath: Hashable {
+    case profile
+}
+
+extension View {
+
+    func withSettingsRoutes() -> some View {
+        navigationDestination(for: SettingsPath.self) { path in
+            switch path {
+            case .profile:
+                ProfileView()
+            }
+        }
+    }
+}
+
 #Preview {
     SettingsCoordinator()
 }
