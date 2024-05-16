@@ -51,21 +51,18 @@ let articles: [Article] = [
 ]
 
 struct HomeView: View {
-    @StateObject private var homeRouter = Router()
+    @EnvironmentObject private var router: Router
 
     var body: some View {
-        NavigationStack(path: $homeRouter.path) {
-            List(articles) { article in
-                Button {
-                    homeRouter.push(to: HomePath.details(article))
-                } label: {
-                    ArticleListItemView(article: article)
-                }
-                .buttonStyle(.plain)
+        List(articles) { article in
+            Button {
+                router.push(to: HomePath.details(article))
+            } label: {
+                ArticleListItemView(article: article)
             }
-            .withHomeRoutes()
+            .buttonStyle(.plain)
         }
-        .environmentObject(homeRouter)
+        .withHomeRoutes()
     }
 }
 

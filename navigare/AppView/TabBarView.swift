@@ -43,9 +43,9 @@ enum Tab: Int, Identifiable, CaseIterable {
     func contentView() -> some View {
         switch self {
         case .home:
-            HomeView()
+            HomeRouterView()
         case .settings:
-            SettingsView()
+            SettingsRouterView()
         }
     }
 
