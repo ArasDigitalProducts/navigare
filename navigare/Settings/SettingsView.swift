@@ -25,5 +25,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-        .environmentObject(SessionManager())
+        .environmentObject(Coordinator())
 }
