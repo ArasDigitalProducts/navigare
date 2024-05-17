@@ -56,7 +56,7 @@ struct HomeView: View {
     var body: some View {
         List(articles) { article in
             Button {
-                coordinator.push(to: HomePath.details(article))
+                coordinator.push(to: HomePushDestination.details(article))
             } label: {
                 ArticleListItemView(article: article)
             }

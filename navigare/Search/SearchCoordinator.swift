@@ -16,17 +16,17 @@ struct SearchCoordinator: View {
     }
 }
 
-enum SearchPath: Hashable {
+enum SearchPushDestination: Hashable {
     case results(query: String, results: [Article])
     case details(Article)
 
-    static func == (lhs: SearchPath, rhs: SearchPath) -> Bool {
+    static func == (lhs: SearchPushDestination, rhs: SearchPushDestination) -> Bool {
         switch (lhs, rhs) {
         case (.results(let lhsQuery, let lhsArticles), .results(let rhsQuery, let rhsArticles)):
             return lhsQuery == rhsQuery && lhsArticles == rhsArticles
         case (.details(let lhsArticle), .details(let rhsArticle)):
             return lhsArticle == rhsArticle
-        @unknown default:
+        default:
             return false
         }
     }
@@ -44,8 +44,8 @@ enum SearchPath: Hashable {
 
 extension View {
     func withSearchRoutes() -> some View {
-        navigationDestination(for: SearchPath.self) { path in
-            switch path {
+        navigationDestination(for: SearchPushDestination.self) { destination in
+            switch destination {
             case .results(let query, let results):
                 ResultsView(query: query, results: results)
             case .details(let article):

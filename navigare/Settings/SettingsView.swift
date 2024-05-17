@@ -13,11 +13,11 @@ struct SettingsView: View {
     var body: some View {
         List {
             Button("Profile") {
-                coordinator.push(to: SettingsPath.profile)
+                coordinator.push(to: SettingsPushDestination.profile)
             }
 
             Button("Notifications") {
-                coordinator.present(.notifications, isFullscreen: true)
+                coordinator.present(SettingsSheetDestination.notifications, isFullscreen: true)
             }
         }
     }

@@ -54,7 +54,6 @@ struct TabBarView: View {
 
 enum Tab: Int, Identifiable, CaseIterable {
     case home
-    case search
     case settings
 
     nonisolated var id: Int {
@@ -65,8 +64,6 @@ enum Tab: Int, Identifiable, CaseIterable {
         switch self {
         case .home:
             "Home"
-        case .search:
-            "Search"
         case .settings:
             "Settings"
         }
@@ -76,8 +73,6 @@ enum Tab: Int, Identifiable, CaseIterable {
         switch self {
         case .home:
             "house"
-        case .search:
-            "magnifyingglass"
         case .settings:
             "gear"
         }

@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-enum SheetDestination: Identifiable {
-    case notifications
-    case webArticle
+class AnyIdentifiable: Identifiable {
+    let destination: any Identifiable
 
-    var id: Self {
-        self
+    init(destination: any Identifiable) {
+        self.destination = destination
     }
 }
 
 class Coordinator: ObservableObject {
     @Published var path: NavigationPath
-    @Published var sheet: SheetDestination?
-    @Published var fullscreenSheet: SheetDestination?
+    @Published var sheet: AnyIdentifiable?
+    @Published var fullscreenSheet: AnyIdentifiable?
 
     init() {
         self.path = NavigationPath()
@@ -34,11 +33,11 @@ class Coordinator: ObservableObject {
         path.removeLast()
     }
 
-    func present(_ sheet: SheetDestination, isFullscreen: Bool = false) {
+    func present(_ sheet: any Identifiable, isFullscreen: Bool = false) {
         if isFullscreen {
-            self.fullscreenSheet = sheet
+            self.fullscreenSheet = AnyIdentifiable(destination: sheet)
         } else {
-            self.sheet = sheet
+            self.sheet = AnyIdentifiable(destination: sheet)
         }
     }
 

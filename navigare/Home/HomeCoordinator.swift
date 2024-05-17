@@ -20,15 +20,13 @@ enum HomeCoordinatorDestination: Hashable {
     case search
 }
 
-enum HomePath: Hashable {
+enum HomePushDestination: Hashable {
     case details(Article)
 
-    static func == (lhs: HomePath, rhs: HomePath) -> Bool {
+    static func == (lhs: HomePushDestination, rhs: HomePushDestination) -> Bool {
         switch (lhs, rhs) {
         case (.details(let lhsArticle), .details(let rhsArticle)):
             return lhsArticle == rhsArticle
-        @unknown default:
-            return false
         }
     }
 
@@ -40,10 +38,19 @@ enum HomePath: Hashable {
     }
 }
 
+enum HomeSheetDestination: Identifiable {
+    case webArticle
+
+    var id: Self {
+        self
+    }
+}
+
+
 extension View {
     func withHomeRoutes() -> some View {
-        navigationDestination(for: HomePath.self) { path in
-            switch path {
+        navigationDestination(for: HomePushDestination.self) { destination in
+            switch destination {
             case .details(let article):
                 ArticleView(article: article)
             }

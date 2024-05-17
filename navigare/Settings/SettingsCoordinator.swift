@@ -13,25 +13,33 @@ struct SettingsCoordinator: View {
     var body: some View {
         SettingsView()
             .withSettingsRoutes()
-            .fullScreenCover(item: $coordinator.fullscreenSheet) { destination in
-                switch destination {
-                case .notifications:
-                    NotificationsView()
-                default:
-                    EmptyView()
+            .fullScreenCover(item: $coordinator.fullscreenSheet) { sheet in
+                if let destination = sheet.destination as? SettingsSheetDestination {
+                    switch destination {
+                    case .notifications:
+                        NotificationsView()
+                    }
                 }
             }
     }
 }
 
-enum SettingsPath: Hashable {
+enum SettingsPushDestination: Hashable {
     case profile
+}
+
+enum SettingsSheetDestination: Identifiable {
+    case notifications
+
+    var id: Self {
+        self
+    }
 }
 
 extension View {
     func withSettingsRoutes() -> some View {
-        navigationDestination(for: SettingsPath.self) { path in
-            switch path {
+        navigationDestination(for: SettingsPushDestination.self) { destination in
+            switch destination {
             case .profile:
                 ProfileView()
             }

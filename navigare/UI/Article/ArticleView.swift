@@ -32,7 +32,7 @@ struct ArticleView: View {
             Spacer()
 
             Button("Web article") {
-                coordinator.present(.webArticle)
+                coordinator.present(HomeSheetDestination.webArticle)
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity, alignment: .center)
@@ -41,12 +41,12 @@ struct ArticleView: View {
         }
         .padding()
         .background(.mint.gradient)
-        .sheet(item: $coordinator.sheet) { destination in
-            switch destination {
-            case .webArticle:
-                Text("Web view")
-            default:
-                EmptyView()
+        .sheet(item: $coordinator.sheet) { sheet in
+            if let destination = sheet.destination as? HomeSheetDestination {
+                switch destination {
+                case .webArticle:
+                    Text("Web view")
+                }
             }
         }
     }

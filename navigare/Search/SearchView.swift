@@ -20,7 +20,7 @@ struct SearchView: View {
 
             Button("Search") {
                 let results = articles.filter { $0.title.lowercased().contains(query.lowercased()) }
-                coordinator.push(to: SearchPath.results(query: query, results: results))
+                coordinator.push(to: SearchPushDestination.results(query: query, results: results))
             }
             .disabled(query.isEmpty)
         }
