@@ -29,6 +29,7 @@
 		C850993C2BF3AA1E0069C64B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */; };
 		C85099432BF3AC730069C64B /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099422BF3AC730069C64B /* AppView.swift */; };
 		C85099452BF3ACEB0069C64B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85099442BF3ACEB0069C64B /* Coordinator.swift */; };
+		C89FADB52BF77A69007CC8B3 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89FADB42BF77A69007CC8B3 /* CustomBackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C850993B2BF3AA1E0069C64B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C85099422BF3AC730069C64B /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		C85099442BF3ACEB0069C64B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C89FADB42BF77A69007CC8B3 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				C85099442BF3ACEB0069C64B /* Coordinator.swift */,
 				65F211772BF4D3DB009D64D0 /* SessionManager.swift */,
 				65F211792BF4E5A1009D64D0 /* StateManager.swift */,
+				C89FADB42BF77A69007CC8B3 /* CustomBackButton.swift */,
 				65F211762BF4D25C009D64D0 /* AppView */,
 				65F211852BF4F238009D64D0 /* Home */,
 				65F211802BF4F206009D64D0 /* Settings */,
@@ -275,6 +278,7 @@
 				C85099432BF3AC730069C64B /* AppView.swift in Sources */,
 				65F211822BF4F218009D64D0 /* ProfileView.swift in Sources */,
 				65F211782BF4D3DB009D64D0 /* SessionManager.swift in Sources */,
+				C89FADB52BF77A69007CC8B3 /* CustomBackButton.swift in Sources */,
 				65F211872BF5F4E4009D64D0 /* ArticleListItemView.swift in Sources */,
 				65F211842BF4F22A009D64D0 /* NotificationsView.swift in Sources */,
 			);
