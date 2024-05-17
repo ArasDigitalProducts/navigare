@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ArticleView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State private var showAlert = false
 
     let article: Article
 
@@ -48,6 +50,19 @@ struct ArticleView: View {
             default:
                 EmptyView()
             }
+        }
+        .customBackButton(action: {
+            showAlert = true
+        })
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Confirmation"),
+                message: Text("Do you want to go back?"),
+                primaryButton: .default(Text("Yes")) {
+                    coordinator.path.removeLast()
+                },
+                secondaryButton: .cancel()
+            )
         }
     }
 }
