@@ -79,6 +79,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		65A598162BF773F60089D943 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C84F161B2BF606A000391CF5 /* Article */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		65F211762BF4D25C009D64D0 /* AppView */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +114,6 @@
 			children = (
 				C84F161C2BF606AD00391CF5 /* HomeCoordinator.swift */,
 				65F2117C2BF4ECE3009D64D0 /* HomeView.swift */,
-				C84F161B2BF606A000391CF5 /* Article */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -162,8 +169,9 @@
 				65F211792BF4E5A1009D64D0 /* StateManager.swift */,
 				65F211762BF4D25C009D64D0 /* AppView */,
 				65F211852BF4F238009D64D0 /* Home */,
-				65A5980F2BF740DD0089D943 /* Search */,
 				65F211802BF4F206009D64D0 /* Settings */,
+				65A5980F2BF740DD0089D943 /* Search */,
+				65A598162BF773F60089D943 /* UI */,
 				C85099372BF3AA1E0069C64B /* Assets.xcassets */,
 				C85099392BF3AA1E0069C64B /* navigare.entitlements */,
 				C850993A2BF3AA1E0069C64B /* Preview Content */,
