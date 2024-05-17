@@ -13,8 +13,11 @@ struct HomeCoordinator: View {
     var body: some View {
         HomeView()
             .withHomeRoutes()
-//            .withSettingsRoutes()
     }
+}
+
+enum HomeCoordinatorDestination: Hashable {
+    case search
 }
 
 enum HomePath: Hashable {

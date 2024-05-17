@@ -10,13 +10,18 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selection = Tab.home
     @StateObject private var homeCoordinator = Coordinator()
-    @StateObject private var searchCoordinator = Coordinator()
     @StateObject private var settingsCoordinator = Coordinator()
 
     var body: some View {
         TabView(selection: $selection) {
             NavigationStack(path: $homeCoordinator.path) {
                 HomeCoordinator()
+                    .navigationDestination(for: HomeCoordinatorDestination.self) { destination in
+                        switch destination {
+                        case .search:
+                            SearchCoordinator()
+                        }
+                    }
             }
             .environmentObject(homeCoordinator)
             .tag(Tab.home)
@@ -24,18 +29,6 @@ struct TabBarView: View {
                 Label(
                     title: { Text(Tab.home.title) },
                     icon: { Image(systemName: Tab.home.icon) }
-                )
-            }
-
-            NavigationStack(path: $searchCoordinator.path) {
-                SearchCoordinator()
-            }
-            .environmentObject(searchCoordinator)
-            .tag(Tab.search)
-            .tabItem {
-                Label(
-                    title: { Text(Tab.search.title) },
-                    icon: { Image(systemName: Tab.search.icon) }
                 )
             }
 

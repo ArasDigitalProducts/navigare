@@ -62,6 +62,13 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
+        .toolbar(content: {
+            Button {
+                coordinator.push(to: HomeCoordinatorDestination.search)
+            } label: {
+                Image(systemName: "magnifyingglass")
+            }
+        })
     }
 }
 
