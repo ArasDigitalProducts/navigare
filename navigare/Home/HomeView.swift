@@ -62,13 +62,13 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
-        .toolbar(content: {
+        .toolbar {
             Button {
                 coordinator.push(to: HomeCoordinatorDestination.search)
             } label: {
                 Image(systemName: "magnifyingglass")
             }
-        })
+        }
     }
 }
 

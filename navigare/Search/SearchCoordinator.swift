@@ -13,7 +13,7 @@ struct SearchCoordinator: View {
     var body: some View {
         SearchView()
             .withSearchRoutes()
-//            .withHomeRoutes()
+            .withHomeRoutes()
     }
 }
 
