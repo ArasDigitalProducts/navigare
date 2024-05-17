@@ -22,7 +22,7 @@ struct ResultsView: View {
 
             List(results) { article in
                 Button {
-                    coordinator.push(to: HomePath.details(article))
+                    coordinator.push(to: SearchPath.details(article))
                 } label: {
                     ArticleListItemView(article: article)
                 }
