@@ -62,6 +62,7 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
+        .navigationTitle("Home")
         .toolbar {
             Button {
                 coordinator.push(to: HomeCoordinatorDestination.search)

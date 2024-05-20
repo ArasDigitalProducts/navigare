@@ -7,21 +7,61 @@
 
 import SwiftUI
 
+enum Constants {
+    static let maxStartLocation: CGFloat = 10
+    static let maxOffsetX: CGFloat = 35
+    static let opacityMaxOffsetX: CGFloat = 100
+}
+
 struct CustomBackButtonModifier: ViewModifier {
-    var action: () -> Void
-    var image: Image
+    let action: () -> Void
+    let image: Image
+
+    @State private var offsetX: CGFloat = .zero
+
+    private var opacity: Double {
+        Double(1 - (offsetX / Constants.opacityMaxOffsetX))
+    }
 
     func body(content: Content) -> some View {
         content
+            .offset(x: offsetX)
+            .opacity(opacity)
+            .gesture(dragGesture)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button(action: action) {
                         image
+                            .opacity(opacity)
                     }
                 }
             }
-        // TODO: add custom back button action on swipe to dismiss event
+    }
+
+    private var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged { value in
+                guard value.startLocation.x < Constants.maxStartLocation else { return }
+
+                withAnimation(.linear(duration: 0.1)) {
+                    offsetX = value.translation.width
+                }
+
+                if offsetX >= Constants.maxOffsetX {
+                    resetOffset()
+                    action()
+                }
+            }
+            .onEnded { value in
+                resetOffset()
+            }
+    }
+
+    private func resetOffset() {
+        withAnimation(.easeInOut) {
+            offsetX = .zero
+        }
     }
 }
 
