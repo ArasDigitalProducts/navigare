@@ -2,19 +2,10 @@
 //  HomeCoordinator.swift
 //  navigare
 //
-//  Created by Kresimir Levarda on 16.05.2024..
+//  Created by Andre Flego on 21.05.2024..
 //
 
-import SwiftUI
-
-struct HomeCoordinator: View {
-    @EnvironmentObject private var coordinator: Coordinator
-
-    var body: some View {
-        HomeView()
-            .withHomeRoutes()
-    }
-}
+import Foundation
 
 enum HomeCoordinatorDestination: Hashable {
     case search
@@ -46,18 +37,29 @@ enum HomeSheetDestination: Identifiable {
     }
 }
 
+class HomeCoordinator: Coordinator {
+    override init() {
+        super.init()
+    }
 
-extension View {
-    func withHomeRoutes() -> some View {
-        navigationDestination(for: HomePushDestination.self) { destination in
-            switch destination {
-            case .details(let article):
-                ArticleView(article: article)
-            }
+    override func handleDeeplinkTarget(_ deeplinkTarget: DeeplinkTarget) {
+        let destinations = deeplinkTarget.path.components(separatedBy: "/")
+        let data = deeplinkTarget.data
+
+        destinations.forEach { destination in
+            handleDeeplinkDestination(destination, with: data)
         }
     }
-}
 
-#Preview {
-    HomeCoordinator()
+    private func handleDeeplinkDestination(_ destination: String, with data: [String: String]? = nil) {
+        switch destination {
+        case "details":
+            reset()
+            if let articleId = data?["id"], let article = articles.first(where: { $0.id == articleId }) {
+                push(to: HomePushDestination.details(article))
+            }
+        default:
+            break
+        }
+    }
 }

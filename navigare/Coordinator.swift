@@ -33,6 +33,10 @@ class Coordinator: ObservableObject {
         path.removeLast()
     }
 
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
+
     func present(_ sheet: any Identifiable, isFullscreen: Bool = false) {
         if isFullscreen {
             self.fullscreenSheet = AnyIdentifiable(destination: sheet)
@@ -46,8 +50,12 @@ class Coordinator: ObservableObject {
         fullscreenSheet = nil
     }
 
-    func handle(url: URL) {
-        // handle url and setup stack or
-        UIApplication.shared.open(url)
+    func reset() {
+        dismiss()
+        popToRoot()
+    }
+
+    func handleDeeplinkTarget(_ deeplinkTarget: DeeplinkTarget) {
+        print("Missing implementation")
     }
 }

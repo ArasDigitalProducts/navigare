@@ -10,6 +10,7 @@ import SwiftUI
 struct AppView: View {
     @EnvironmentObject private var stateManager: StateManager
     @EnvironmentObject private var sessionManager: SessionManager
+    @EnvironmentObject private var deeplinkManager: DeeplinkManager
 
     @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted = false
 
@@ -39,6 +40,21 @@ struct AppView: View {
                     stateManager.setState(to: .onboarding)
                 }
             }
+        }
+        .onChange(of: deeplinkManager.deeplinkTarget) { deeplinkTarget in
+            guard let deeplinkTarget else { return }
+            
+            if deeplinkTarget.requiresAuth && sessionManager.username == nil { 
+                deeplinkManager.didHandleDeeplinkTarget()
+                return
+            }
+
+            switch deeplinkTarget.router {
+            case .home, .settings:
+                stateManager.setState(to: .home)
+            }
+
+            deeplinkManager.didHandleDeeplinkTarget()
         }
     }
 }

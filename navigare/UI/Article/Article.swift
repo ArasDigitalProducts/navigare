@@ -12,8 +12,8 @@ struct Article: Identifiable {
     let title: String
     let description: String
 
-    init(title: String, description: String) {
-        self.id = UUID().uuidString
+    init(id: String = UUID().uuidString, title: String, description: String) {
+        self.id = id
         self.title = title
         self.description = description
     }

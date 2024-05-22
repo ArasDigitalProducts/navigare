@@ -2,27 +2,10 @@
 //  SettingsCoordinator.swift
 //  navigare
 //
-//  Created by Kresimir Levarda on 16.05.2024..
+//  Created by Andre Flego on 22.05.2024..
 //
 
-import SwiftUI
-
-struct SettingsCoordinator: View {
-    @EnvironmentObject private var coordinator: Coordinator
-
-    var body: some View {
-        SettingsView()
-            .withSettingsRoutes()
-            .fullScreenCover(item: $coordinator.fullscreenSheet) { sheet in
-                if let destination = sheet.destination as? SettingsSheetDestination {
-                    switch destination {
-                    case .notifications:
-                        NotificationsView()
-                    }
-                }
-            }
-    }
-}
+import Foundation
 
 enum SettingsPushDestination: Hashable {
     case profile
@@ -36,18 +19,30 @@ enum SettingsSheetDestination: Identifiable {
     }
 }
 
-extension View {
-    func withSettingsRoutes() -> some View {
-        navigationDestination(for: SettingsPushDestination.self) { destination in
-            switch destination {
-            case .profile:
-                ProfileView()
-            }
+class SettingsCoordinator: Coordinator {
+    override init() {
+        super.init()
+    }
+
+    override func handleDeeplinkTarget(_ deeplinkTarget: DeeplinkTarget) {
+        let destinations = deeplinkTarget.path.components(separatedBy: "/")
+        let data = deeplinkTarget.data
+
+        destinations.forEach { destination in
+            handleDeeplinkDestination(destination, with: data)
         }
     }
-}
 
-#Preview {
-    SettingsCoordinator()
-        .environmentObject(Coordinator())
+    private func handleDeeplinkDestination(_ destination: String, with data: [String: String]? = nil) {
+        switch destination {
+        case "profile":
+            reset()
+            push(to: SettingsPushDestination.profile)
+        case "notifications":
+            dismiss()
+            present(SettingsSheetDestination.notifications, isFullscreen: true)
+        default:
+            break
+        }
+    }
 }
