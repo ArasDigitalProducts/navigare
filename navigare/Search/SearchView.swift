@@ -19,7 +19,7 @@ struct SearchView: View {
                 .padding()
 
             Button("Search") {
-                let results = articles.filter { $0.title.lowercased().contains(query.lowercased()) }
+                let results = Constants.articles.filter { $0.title.lowercased().contains(query.lowercased()) }
                 coordinator.push(to: SearchPushDestination.results(query: query, results: results))
             }
             .disabled(query.isEmpty)

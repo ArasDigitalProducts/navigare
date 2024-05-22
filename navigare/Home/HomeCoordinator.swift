@@ -55,7 +55,7 @@ class HomeCoordinator: Coordinator {
         switch destination {
         case "details":
             reset()
-            if let articleId = data?["id"], let article = articles.first(where: { $0.id == articleId }) {
+            if let articleId = data?["id"], let article = Constants.articles.first(where: { $0.id == articleId }) {
                 push(to: HomePushDestination.details(article))
             }
         default:

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Constants {
+private extension Constants {
     static let maxStartLocation: CGFloat = 10
     static let maxOffsetX: CGFloat = 35
     static let opacityMaxOffsetX: CGFloat = 100

@@ -10,6 +10,8 @@ import Foundation
 class HomeViewModel: ObservableObject {
     private let coordinator: Coordinator
 
+    let articles: [Article] = Constants.articles
+
     init(coordinator: Coordinator) {
         self.coordinator = coordinator
     }

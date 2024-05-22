@@ -15,6 +15,7 @@
 		65ACC1A62BFDE3F9001D32EE /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACC1A52BFDE3F9001D32EE /* SettingsCoordinator.swift */; };
 		65ACC1A82BFDE83E001D32EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACC1A72BFDE83E001D32EE /* HomeViewModel.swift */; };
 		65ACC1AA2BFDF565001D32EE /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACC1A92BFDF565001D32EE /* ArticleViewModel.swift */; };
+		65ACC1AC2BFE0A12001D32EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACC1AB2BFE0A12001D32EE /* Constants.swift */; };
 		65CB40312BFCE9C4008B9E8B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB40302BFCE9C4008B9E8B /* HomeCoordinator.swift */; };
 		65F211712BF4B87B009D64D0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211702BF4B87B009D64D0 /* OnboardingView.swift */; };
 		65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F211722BF4B87F009D64D0 /* AuthView.swift */; };
@@ -47,6 +48,7 @@
 		65ACC1A52BFDE3F9001D32EE /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		65ACC1A72BFDE83E001D32EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		65ACC1A92BFDF565001D32EE /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		65ACC1AB2BFE0A12001D32EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65CB40302BFCE9C4008B9E8B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		65CB40322BFCF4CC008B9E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		65F211702BF4B87B009D64D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				65F211772BF4D3DB009D64D0 /* SessionManager.swift */,
 				65F211792BF4E5A1009D64D0 /* StateManager.swift */,
 				C89FADB42BF77A69007CC8B3 /* CustomBackButton.swift */,
+				65ACC1AB2BFE0A12001D32EE /* Constants.swift */,
 				65F211762BF4D25C009D64D0 /* AppView */,
 				65F211852BF4F238009D64D0 /* Home */,
 				65F211802BF4F206009D64D0 /* Settings */,
@@ -291,6 +294,7 @@
 				C84F161F2BF6076B00391CF5 /* SettingsCoordinatorView.swift in Sources */,
 				C85099452BF3ACEB0069C64B /* Coordinator.swift in Sources */,
 				C84F161D2BF606AD00391CF5 /* HomeCoordinatorView.swift in Sources */,
+				65ACC1AC2BFE0A12001D32EE /* Constants.swift in Sources */,
 				65F2117A2BF4E5A1009D64D0 /* StateManager.swift in Sources */,
 				65F211752BF4B884009D64D0 /* TabBarView.swift in Sources */,
 				65F211732BF4B87F009D64D0 /* AuthView.swift in Sources */,

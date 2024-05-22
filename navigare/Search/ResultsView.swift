@@ -35,7 +35,7 @@ struct ResultsView: View {
 #Preview {
     ResultsView(
         query: "Art",
-        results: articles.filter { $0.title.lowercased().contains("art") }
+        results: Constants.articles.filter { $0.title.lowercased().contains("art") }
     )
     .environmentObject(Coordinator())
 }

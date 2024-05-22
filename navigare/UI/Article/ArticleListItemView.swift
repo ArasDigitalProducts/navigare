@@ -41,7 +41,7 @@ struct ArticleListItemView: View {
 
 #Preview {
     ArticleListItemView(
-        article: .init(
+        article: Article(
             title: "Exploring the Benefits of Mindfulness Meditation",
             description: "Discover how incorporating mindfulness meditation into your daily routine can lead to reduced stress, improved focus, and enhanced overall well-being."
         )
