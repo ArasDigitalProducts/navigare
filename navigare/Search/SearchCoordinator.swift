@@ -12,7 +12,16 @@ struct SearchCoordinator: View {
 
     var body: some View {
         SearchView()
-            .withSearchRoutes()
+            .navigationDestination(for: SearchPushDestination.self) { destination in
+                switch destination {
+                case .results(let query, let results):
+                    ResultsView(query: query, results: results)
+                case .details(let article):
+                    ArticleView {
+                        ArticleViewModel(article: article, coordinator: coordinator)
+                    }
+                }
+            }
     }
 }
 
@@ -38,19 +47,6 @@ enum SearchPushDestination: Hashable {
             hasher.combine(articles)
         case .details(let article):
             hasher.combine(article)
-        }
-    }
-}
-
-extension View {
-    func withSearchRoutes() -> some View {
-        navigationDestination(for: SearchPushDestination.self) { destination in
-            switch destination {
-            case .results(let query, let results):
-                ResultsView(query: query, results: results)
-            case .details(let article):
-                ArticleView(article: article)
-            }
         }
     }
 }

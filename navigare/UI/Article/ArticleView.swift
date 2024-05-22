@@ -9,10 +9,13 @@ import SwiftUI
 import UIKit
 
 struct ArticleView: View {
-    @EnvironmentObject private var coordinator: Coordinator
-    @State private var showAlert = false
+    @StateObject private var viewModel: ArticleViewModel
 
-    let article: Article
+    init(_ viewModel: @escaping () -> ArticleViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+    }
+
+    @State private var showAlert = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -23,18 +26,18 @@ struct ArticleView: View {
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, alignment: .center)
 
-            Text(article.title)
+            Text(viewModel.article.title)
                 .font(.title)
                 .bold()
                 .padding(.top, 16)
 
-            Text(article.description)
+            Text(viewModel.article.description)
                 .font(.system(size: 16))
 
             Spacer()
 
             Button("Web article") {
-                coordinator.present(HomeSheetDestination.webArticle)
+                viewModel.presentWebArticle()
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity, alignment: .center)
@@ -43,14 +46,14 @@ struct ArticleView: View {
         }
         .padding()
         .background(.mint.gradient)
-        .sheet(item: $coordinator.sheet) { sheet in
-            if let destination = sheet.destination as? HomeSheetDestination {
-                switch destination {
-                case .webArticle:
-                    Text("Web view")
-                }
+        .sheet(item: $viewModel.sheet, onDismiss: viewModel.dismiss) { sheet in
+            switch sheet {
+            case .webArticle:
+                Text("Web view")
             }
         }
+
+
         .customBackButton(action: {
             showAlert = true
         })
@@ -59,7 +62,7 @@ struct ArticleView: View {
                 title: Text("Confirmation"),
                 message: Text("Do you want to go back?"),
                 primaryButton: .default(Text("Yes")) {
-                    coordinator.path.removeLast()
+                    viewModel.goBack()
                 },
                 secondaryButton: .cancel()
             )
@@ -68,11 +71,13 @@ struct ArticleView: View {
 }
 
 #Preview {
-    ArticleView(
-        article: .init(
-            title: "Exploring the Benefits of Mindfulness Meditation",
-            description: "Discover how incorporating mindfulness meditation into your daily routine can lead to reduced stress, improved focus, and enhanced overall well-being."
+    ArticleView {
+        ArticleViewModel(
+            article: Article(
+                title: "Exploring the Benefits of Mindfulness Meditation",
+                description: "Discover how incorporating mindfulness meditation into your daily routine can lead to reduced stress, improved focus, and enhanced overall well-being."
+            ),
+            coordinator: Coordinator()
         )
-    )
-    .environmentObject(Coordinator())
+    }
 }

@@ -14,17 +14,12 @@ struct HomeCoordinatorView: View {
         HomeView {
             HomeViewModel(coordinator: coordinator)
         }
-        .withHomeRoutes()
-    }
-}
-
-
-extension View {
-    func withHomeRoutes() -> some View {
-        navigationDestination(for: HomePushDestination.self) { destination in
+        .navigationDestination(for: HomePushDestination.self) { destination in
             switch destination {
             case .details(let article):
-                ArticleView(article: article)
+                ArticleView {
+                    ArticleViewModel(article: article, coordinator: coordinator)
+                }
             }
         }
     }
