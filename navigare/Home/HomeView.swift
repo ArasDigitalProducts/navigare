@@ -61,12 +61,16 @@ let articles: [Article] = [
 ]
 
 struct HomeView: View {
-    @EnvironmentObject private var coordinator: Coordinator
+    @StateObject private var viewModel: HomeViewModel
+
+    init(_ viewModel: @escaping () -> HomeViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+    }
 
     var body: some View {
         List(articles) { article in
             Button {
-                coordinator.push(to: HomePushDestination.details(article))
+                viewModel.pushToArticleDetails(article)
             } label: {
                 ArticleListItemView(article: article)
             }
@@ -75,7 +79,7 @@ struct HomeView: View {
         .navigationTitle("Home")
         .toolbar {
             Button {
-                coordinator.push(to: HomeCoordinatorDestination.search)
+                viewModel.pushToSearch()
             } label: {
                 Image(systemName: "magnifyingglass")
             }
@@ -84,6 +88,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
-        .environmentObject(Coordinator())
+    HomeView {
+        HomeViewModel(coordinator: Coordinator())
+    }
 }
