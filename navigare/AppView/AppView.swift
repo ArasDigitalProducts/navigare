@@ -63,4 +63,5 @@ struct AppView: View {
     AppView()
         .environmentObject(StateManager())
         .environmentObject(SessionManager())
+        .environmentObject(DeeplinkManager.shared)
 }

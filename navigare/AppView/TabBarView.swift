@@ -65,7 +65,7 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
-        .environmentObject(SessionManager())
+        .environmentObject(DeeplinkManager.shared)
 }
 
 enum Tab: Int, Identifiable, CaseIterable {

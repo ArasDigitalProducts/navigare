@@ -27,4 +27,5 @@ struct HomeCoordinatorView: View {
 
 #Preview {
     HomeCoordinatorView()
+        .environmentObject(HomeCoordinator() as Coordinator)
 }
